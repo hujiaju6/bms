@@ -1,0 +1,14 @@
+﻿[
+    {
+        "name": "ARM GCC 15.2.1 (arm-none-eabi)",
+        "toolchainFile": "${workspaceFolder}/cmake/arm-none-eabi-gcc.cmake",
+        "environmentVariables": {
+            "PATH": "G:/arm-gcc/bin;${env:PATH}",
+            "TMP": "C:/Temp",
+            "TEMP": "C:/Temp"
+        },
+        "preferredGenerator": {
+            "name": "Ninja"
+        }
+    }
+]

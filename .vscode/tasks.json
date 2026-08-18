@@ -1,0 +1,97 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🔨 Build (CMake + Ninja)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/rebuild.ps1"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc",
+            "detail": "CMake 生成 + Ninja 构建"
+        },
+        {
+            "label": "🔥 Flash (STM32CubeProgrammer)",
+            "type": "shell",
+            "command": "G:/stm32cubeprogrammer/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "freq=4000",
+                "-d",
+                "${workspaceFolder}/build_final/my_f407rtos.elf",
+                "-hardRst",
+                "-s"
+            ],
+            "group": "none",
+            "dependsOn": [
+                "🔨 Build (CMake + Ninja)"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "detail": "通过 ST-Link 烧录固件到 STM32F407"
+        },
+        {
+            "label": "🔥 Flash Only (不编译)",
+            "type": "shell",
+            "command": "G:/stm32cubeprogrammer/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "freq=4000",
+                "-d",
+                "${workspaceFolder}/build_final/my_f407rtos.elf",
+                "-hardRst",
+                "-s"
+            ],
+            "group": "none",
+            "problemMatcher": [],
+            "detail": "仅烧录（跳过编译）"
+        },
+        {
+            "label": "🧹 Clean Build",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Remove-Item -Recurse -Force '${workspaceFolder}/build_final'; Write-Output 'Cleaned.'"
+            ],
+            "group": "none",
+            "problemMatcher": [],
+            "detail": "删除构建目录"
+        },
+        {
+            "label": "🔧 GDB Server (STM32CubeProgrammer)",
+            "type": "shell",
+            "command": "G:/stm32cubeprogrammer/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "freq=4000",
+                "-gdbport=61234"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*)$",
+                    "file": 1
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "ST-LINK",
+                    "endsPattern": "Waiting for debugger connection"
+                }
+            },
+            "group": "none",
+            "detail": "启动 GDB Server 在端口 61234，用于调试"
+        }
+    ]
+}

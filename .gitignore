@@ -1,0 +1,20 @@
+# Build output
+/build/
+/build_final/
+/build_n2/
+/build_ninja/
+
+# Keil MDK generated output
+/MDK-ARM/build/
+/MDK-ARM/my_f407rtos/
+/MDK-ARM/.cmsis/
+/MDK-ARM/.eide/
+/MDK-ARM/DebugConfig/
+/MDK-ARM/RTE/
+/MDK-ARM/.vscode/
+/MDK-ARM/*.uvguix.*
+
+# Local editor/user settings
+/.vscode/settings.json
+*.bak
+*.tmp

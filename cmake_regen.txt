@@ -1,0 +1,13 @@
+﻿cmake.exe : CMake Error: CMake was unable to find a build program 
+corresponding to "Ninja".  CMAKE_MAKE_PROGRAM is not set.  You probably need 
+to select a different build tool.
+所在位置 行:1 字符: 391
++ ... found: $cmakeExe" }; & $cmakeExe -S '..' -B '.' -G Ninja 2>&1 | Out-F ...
++                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CMake Error: CM...ent build tool. 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
+CMake Error: CMAKE_ASM_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!

@@ -1,0 +1,45 @@
+﻿{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🐞 Debug (STM32F407 + ST-Link)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build_final/my_f407rtos.elf",
+            "gdbPath": "G:/arm-gcc/bin/arm-none-eabi-gdb.exe",
+            "gdbTarget": "localhost:61234",
+            "device": "STM32F407ZG",
+            "svdFile": "G:/stm32cubeprogrammer/SVD/STM32F407.svd",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "🔧 GDB Server (STM32CubeProgrammer)",
+            "postDebugTask": "",
+            "showDevDebugOutput": "raw",
+            "v1": false,
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        },
+        {
+            "name": "🐞 Debug (手动启动 GDB Server)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "external",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build_final/my_f407rtos.elf",
+            "gdbPath": "G:/arm-gcc/bin/arm-none-eabi-gdb.exe",
+            "gdbTarget": "localhost:61234",
+            "device": "STM32F407ZG",
+            "svdFile": "G:/stm32cubeprogrammer/SVD/STM32F407.svd",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw",
+            "v1": false,
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        }
+    ]
+}
